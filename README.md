@@ -35,8 +35,17 @@ tag jpg2raf ~/Pictures/101_FUJI
 
 ### 安装
 
+安装命令：
+
 ```
 ln -s "$(pwd)/tag" /usr/local/bin/tag
 ```
 
-安装后在任意目录执行 `tag jpg2raf ./` 即可。
+安装 zsh Tab 补全（第 1 个参数补全动作、第 2 个参数补全目录）：
+
+```
+ln -s "$(pwd)/completions/_tag" /usr/local/share/zsh/site-functions/_tag
+rm -f ~/.zcompdump
+```
+
+然后重开终端（或执行 `exec zsh`）。安装后在任意目录执行 `tag jpg2raf ./` 即可。

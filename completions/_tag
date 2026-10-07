@@ -1,0 +1,28 @@
+#compdef tag
+#
+# zsh 补全定义：tag
+#
+# 第 1 个参数补全动作（如 jpg2raf），
+# 第 2 个参数补全目录。
+
+_tag() {
+    local -a actions
+    actions=(
+        'jpg2raf:将同名 RAF 文件的标签标记为与 JPG 一致'
+    )
+
+    local context state line
+    typeset -A opt_args
+
+    _arguments -C \
+        '1:action:->action' \
+        '2:directory:_directories'
+
+    case "$state" in
+        action)
+            _describe -t commands 'tag action' actions
+            ;;
+    esac
+}
+
+_tag "$@"
